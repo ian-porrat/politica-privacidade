@@ -1,0 +1,73 @@
+<!-- Opção para complemento de cadastro -->
+<nav class="navbar">
+  <div class="container navbar-container">
+    <div class="navbar-main">
+      <img class="navbar-main-logo" src="assets/images/logo-complete.svg" alt="">
+      <div class="navbar-main-search">
+        <div class="navbar-main-search-dropdown">
+          <span>Tudo</span>
+        </div>
+        <div class="navbar-main-search-input">
+          <input type="text" placeholder="O que você está procurando">
+        </div>
+      </div>
+      <div class="navbar-main-lang">
+      </div>
+      <div class="navbar-main-menu">
+        <div class="navbar-main-menuItem featured">
+          <span>
+            Vagas
+          </span>
+        </div>
+        <div class="navbar-main-menuItem dropdown">
+          <span>
+            Desenvolvimento
+          </span>
+        </div>
+        <div class="navbar-main-menuItem">
+          <span>
+            Redes
+          </span>
+        </div>
+        <div class="navbar-main-menuItem">
+          <span>
+            Blog
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-extra">
+      <div class="navbar-extra-notification">
+        <img src="assets/icons/icon-bell__blue.svg" alt="">
+        <span class="navbar-extra-notification-helper">
+          2
+        </span>
+      </div>
+      <div class="navbar-extra-menu">
+        <img class="navbar-extra-menu-icon" src="assets/icons/icon-menu__gray.svg" alt="">
+        <span class="navbar-extra-menu-label">Menu</span>
+      </div>
+
+    </div>
+  </div>
+</nav>
+<script>
+    // Mobile Nav
+    $('#menu-mobile-btn').change(function(){
+      if ($(this).is(':checked')) {
+        $('body').css('overflow','hidden')
+      } else {
+        $('body').css('overflow','auto')
+      } 
+    });
+    // Navigation
+    $('.main-nav-mobile .main-nav_item').click(function(){
+      // Close mobile Nav
+      $('#menu-mobile-btn').prop( "checked", false );
+      // Load content
+        $.get("modules/" + $(this).attr("data-link") + ".html", function (data) {
+            $(".main-content").empty().prepend(data);
+        });
+    });
+  </script>
+  
